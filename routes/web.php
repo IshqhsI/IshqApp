@@ -11,6 +11,10 @@ Route::get('/skills', function () {
     return view('skills');
 })->name('skills');
 
+Route::get('/projects', function () {
+    return view('projects');
+})->name('projects');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
