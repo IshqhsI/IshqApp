@@ -9,26 +9,25 @@
             </div>
             <ul tabindex="0"
                 class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[999] mt-3 w-52 p-2 shadow gap-2">
-                <li><a href="{{ route('home') }}" class=" normal-case active:bg-slate-300 @if (Route::currentRouteName() == 'home')
-                    active
-                @endif">Home</a></li>
-                <li><a href="{{ route('skills') }}" class="normal-case @if (Route::currentRouteName() == 'skills')
-                    active
-                @endif">Skills</a></li>
-                <li><a href="{{ route('home') }}" class=" normal-case">Projects</a></li>
+                <li><a href="{{ route('home') }}"
+                        class=" normal-case active:bg-slate-300 @if (Route::currentRouteName() == 'home') active @endif">Home</a>
+                </li>
+                <li><a href="{{ route('skills') }}"
+                        class="normal-case @if (Route::currentRouteName() == 'skills') active @endif">Skills</a></li>
+                <li><a href="{{ route('projects') }}"
+                        class=" normal-case @if (Route::currentRouteName() == 'projects') active @endif">Projects</a></li>
             </ul>
         </div>
         <a class="btn btn-ghost text-xl normal-case">IshqCode</a>
     </div>
     <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal px-1 gap-2">
-            <li><a href="{{ route('home') }}" class="normal-case @if (Route::currentRouteName() == 'home')
-                active
-            @endif">Home</a></li>
-            <li><a href="{{ route('skills') }}" class="normal-case @if (Route::currentRouteName() == 'skills')
-                active
-            @endif">Skills</a></li>
-            <li><a href="{{ route('home') }}" class="normal-case">Projects</a></li>
+            <li><a href="{{ route('home') }}"
+                    class="normal-case @if (Route::currentRouteName() == 'home') active @endif">Home</a></li>
+            <li><a href="{{ route('skills') }}"
+                    class="normal-case @if (Route::currentRouteName() == 'skills') active @endif">Skills</a></li>
+            <li><a href="{{ route('projects') }}"
+                    class="normal-case @if (Route::currentRouteName() == 'projects') active @endif">Projects</a></li>
         </ul>
     </div>
     <div class="navbar-end">
