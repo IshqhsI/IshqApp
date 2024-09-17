@@ -5,7 +5,7 @@
         <div class="hero-content flex-col lg:flex-row gap-8 lg:gap-20 items-center lg:items-start relative z-10">
             <div class="relative">
                 {{-- <img src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp" --}}
-                <img src="{{ asset('img/pasfoto.jpg') }}"
+                <img src="{{ asset('img/pasf.png') }}"
                     class="max-w-sm w-52 rounded-lg shadow-2xl w transition-transform duration-500 hover:scale-105 relative z-10"
                     alt="A visual placeholder" />
                 <!-- Gradient overlay on the image -->
