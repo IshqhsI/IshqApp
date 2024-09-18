@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
-    <link rel="stylesheet" href="{{ asset('build/assets/app-DxZc1Buv.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/assets/app-DaxRWotr.css') }}">
     <script src="{{ asset('build/assets/app-DLXkxiZ3.js') }}"></script>
 
     <style>
