@@ -16,6 +16,8 @@
                         class="normal-case @if (Route::currentRouteName() == 'skills') active @endif">Skills</a></li>
                 <li><a href="{{ route('projects') }}"
                         class=" normal-case @if (Route::currentRouteName() == 'projects') active @endif">Projects</a></li>
+                <li><a href="{{ route('contact') }}"
+                        class="normal-case @if (Route::currentRouteName() == 'contact') active @endif">Contact</a></li>
             </ul>
         </div>
         <a class="btn btn-ghost text-xl normal-case">IshqCode</a>
@@ -28,6 +30,8 @@
                     class="normal-case @if (Route::currentRouteName() == 'skills') active @endif">Skills</a></li>
             <li><a href="{{ route('projects') }}"
                     class="normal-case @if (Route::currentRouteName() == 'projects') active @endif">Projects</a></li>
+            <li><a href="{{ route('contact') }}"
+                    class="normal-case @if (Route::currentRouteName() == 'contact') active @endif">Contact</a></li>
         </ul>
     </div>
     <div class="navbar-end">
