@@ -7,7 +7,7 @@
         <div class="absolute top-8 -right-20 w-36 h-36 bg-blue-600 opacity-60 rounded"></div>
         {{-- <div class="absolute -bottom-16 right-96 w-32 h-32 bg-blue-600 opacity-50 rounded-full"></div> --}}
 
-        <section class="relative z-10 mx-auto flex flex-col items-center justify-center">
+        <section class="relative z-10 mx-auto flex flex-col items-center justify-center py-12">
             <h2 class="text-4xl font-bold mb-8 lg:mb-12 text-center animate-fade-in">Projects</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center w-full max-w-7xl">
