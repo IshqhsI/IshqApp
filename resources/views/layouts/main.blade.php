@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    {{-- <link rel="stylesheet" href="{{ asset('build/assets/app-DaxRWotr.css') }}">
-    <script src="{{ asset('build/assets/app-DLXkxiZ3.js') }}"></script> --}}
+    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+    <link rel="stylesheet" href="{{ asset('build/assets/app-CRBQ9-4s.css') }}">
+    <script src="{{ asset('build/assets/app-DLXkxiZ3.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         @keyframes fade-in-down {
