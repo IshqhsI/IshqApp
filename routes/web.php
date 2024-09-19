@@ -33,10 +33,10 @@ Route::get('/productivity/schedules', function () {
     return view('productivity.schedules');
 })->name('schedules');
 
-Route::get('/productivity/notes', [NoteController::class, 'index'])->name('notes');
-Route::post('/productivity/notes', [NoteController::class, 'store'])->name('notes.store');
-Route::put('/productivity/notes', [NoteController::class, 'update'])->name('notes.update');
-Route::delete('/productivity/notes/{note}', [NoteController::class, 'destroy'])->name('notes.destroy');
+Route::get('/productivity/notes', [NoteController::class, 'index'])->name('notes')->middleware('auth');
+Route::post('/productivity/notes', [NoteController::class, 'store'])->name('notes.store')->middleware('auth');
+Route::put('/productivity/notes', [NoteController::class, 'update'])->name('notes.update')->middleware('auth');
+Route::delete('/productivity/notes/{note}', [NoteController::class, 'destroy'])->name('notes.destroy')->middleware('auth');
 
 
 
