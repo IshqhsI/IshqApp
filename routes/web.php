@@ -23,6 +23,24 @@ Route::get('/productivity', function () {
     return view('productivity');
 })->name('productivity');
 
+Route::get('/productivity/notes', function () {
+    return view('productivity.notes');
+})->name('notes');
+
+Route::get('/productivity/todos', function () {
+    return view('productivity.todos');
+})->name('todos');
+
+Route::get('/productivity/schedules', function () {
+    return view('productivity.schedules');
+})->name('schedules');
+
+
+
+
+
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
