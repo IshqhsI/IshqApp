@@ -18,8 +18,18 @@
                         class=" normal-case @if (Route::currentRouteName() == 'projects') active @endif">Projects</a></li>
                 <li><a href="{{ route('contact') }}"
                         class="normal-case @if (Route::currentRouteName() == 'contact') active @endif">Contact</a></li>
-                <li><a href="{{ route('productivity') }}"
-                        class="normal-case @if (Route::currentRouteName() == 'productivity') active @endif">Productivity</a></li>
+                {{-- <li><a href="{{ route('productivity') }}"
+                        class="normal-case @if (Route::currentRouteName() == 'productivity') active @endif">Productivity</a></li> --}}
+                <li>
+                    <details>
+                        <summary>Productivity</summary>
+                        <ul class="p-2">
+                            <li><a href="{{ route('notes') }}">Notes</a></li>
+                            <li><a href="{{ route('todos') }}">Todolist</a></li>
+                            <li><a href="{{ route('schedules') }}">Schedules</a></li>
+                        </ul>
+                    </details>
+                </li>
             </ul>
         </div>
         <a class="btn btn-ghost text-xl normal-case">IshqCode</a>
@@ -34,8 +44,18 @@
                     class="normal-case @if (Route::currentRouteName() == 'projects') active @endif">Projects</a></li>
             <li><a href="{{ route('contact') }}"
                     class="normal-case @if (Route::currentRouteName() == 'contact') active @endif">Contact</a></li>
-            <li><a href="{{ route('productivity') }}"
-                    class="normal-case @if (Route::currentRouteName() == 'productivity') active @endif">Productivity</a></li>
+            {{-- <li><a href="{{ route('productivity') }}"
+                    class="normal-case @if (Route::currentRouteName() == 'productivity') active @endif">Productivity</a></li> --}}
+            <li>
+                <details class="z-[999]">
+                    <summary>Productivity</summary>
+                    <ul class="p-2">
+                        <li><a href="{{ route('notes') }}">Notes</a></li>
+                        <li><a href="{{ route('todos') }}">Todolist</a></li>
+                        <li><a href="{{ route('schedules') }}">Schedules</a></li>
+                    </ul>
+                </details>
+            </li>
         </ul>
     </div>
     <div class="navbar-end">
