@@ -29,6 +29,24 @@ class NoteController extends Controller
         return redirect()->route('notes');
     }
 
+    public function update(Request $request){
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+        ]);
+
+        if (!$request->id || !Note::find($request->id)->where('user_id', Auth::user()->id)->exists()) {
+            return redirect()->route('notes');
+        }
+
+        $note = Note::find($request->id);
+        $note->title = $request->input('title');
+        $note->content = $request->input('content');
+        $note->save();
+
+        return redirect()->route('notes');
+    }
+
     public function destroy(Note $note)
     {
         $note->delete();
