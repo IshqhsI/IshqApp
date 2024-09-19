@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NoteController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,9 +24,6 @@ Route::get('/productivity', function () {
     return view('productivity');
 })->name('productivity');
 
-Route::get('/productivity/notes', function () {
-    return view('productivity.notes');
-})->name('notes');
 
 Route::get('/productivity/todos', function () {
     return view('productivity.todos');
@@ -35,7 +33,9 @@ Route::get('/productivity/schedules', function () {
     return view('productivity.schedules');
 })->name('schedules');
 
-
+Route::get('/productivity/notes', [NoteController::class, 'index'])->name('notes');
+Route::post('/productivity/notes', [NoteController::class, 'store'])->name('notes.store');
+Route::delete('/productivity/notes/{note}', [NoteController::class, 'destroy'])->name('notes.destroy');
 
 
 
