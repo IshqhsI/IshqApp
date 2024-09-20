@@ -35,27 +35,42 @@
                 @php
                     $colors = ['bg-pink-100', 'bg-yellow-100', 'bg-green-100', 'bg-blue-100', 'bg-purple-100'];
                 @endphp
-                @foreach ($notes as $note)
-                    <div
-                        class="card {{ $colors[array_rand($colors)] }} shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1 note" >
+                @if ($notes->count() == 0)
+                    <div class=" card bg-pink-100 shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
                         <div class="card-body">
-                            <h2 class="card-title text-gray-800">{{ $note['title'] }}</h2>
+                            <h2 class="card-title text-gray-800">No notes found, create one?</h2>
                             <p class="text-gray-600">
-                                {{ $note['content'] }}
+                                Click the button below to create a new note
                             </p>
                             <div class="card-actions justify-end mt-4">
-                                <button class="btn btn-sm btn-ghost text-indigo-600 hover:bg-indigo-100" id="update_btn"
-                                    data-id="{{ $note['id'] }}" data-title="{{ $note['title'] }}"
-                                    data-content="{{ $note['content'] }}" onclick="showupdate(this)">Edit</button>
-                                <form action="{{ route('notes.destroy', $note['id']) }}" method="post" class="inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-sm btn-ghost text-red-600 hover:bg-red-100">Delete</button>
-                                </form>
+                                <button class="btn btn-sm btn-ghost text-indigo-600 hover:bg-indigo-100"
+                                    onclick="my_modal_1.showModal()">Create Note</button>
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @else
+                    @foreach ($notes as $note)
+                        <div
+                            class="card {{ $colors[array_rand($colors)] }} shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1 note">
+                            <div class="card-body">
+                                <h2 class="card-title text-gray-800">{{ $note['title'] }}</h2>
+                                <p class="text-gray-600">
+                                    {{ $note['content'] }}
+                                </p>
+                                <div class="card-actions justify-end mt-4">
+                                    <button class="btn btn-sm btn-ghost text-indigo-600 hover:bg-indigo-100" id="update_btn"
+                                        data-id="{{ $note['id'] }}" data-title="{{ $note['title'] }}"
+                                        data-content="{{ $note['content'] }}" onclick="showupdate(this)">Edit</button>
+                                    <form action="{{ route('notes.destroy', $note['id']) }}" method="post" class="inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-sm btn-ghost text-red-600 hover:bg-red-100">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
 
             </div>
         </main>
