@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ToDoController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -24,11 +25,6 @@ Route::get('/productivity', function () {
     return view('productivity');
 })->name('productivity');
 
-
-Route::get('/productivity/todos', function () {
-    return view('productivity.todos');
-})->name('todos');
-
 Route::get('/productivity/schedules', function () {
     return view('productivity.schedules');
 })->name('schedules');
@@ -38,7 +34,10 @@ Route::post('/productivity/notes', [NoteController::class, 'store'])->name('note
 Route::put('/productivity/notes', [NoteController::class, 'update'])->name('notes.update')->middleware('auth');
 Route::delete('/productivity/notes/{note}', [NoteController::class, 'destroy'])->name('notes.destroy')->middleware('auth');
 
-
+Route::get('/productivity/todos', [ToDoController::class, 'index'])->name('todos');
+Route::post('/productivity/todos', [ToDoController::class, 'store'])->name('todos.store');
+Route::put('/productivity/todos', [ToDoController::class, 'update'])->name('todos.update');
+Route::delete('/productivity/todos/{todo}', [ToDoController::class, 'destroy'])->name('todos.destroy');
 
 
 
