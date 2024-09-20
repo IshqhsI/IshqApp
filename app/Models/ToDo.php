@@ -9,7 +9,7 @@ class ToDo extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'description', 'priority', 'due_date', 'status'];
+    protected $fillable = ['title', 'description', 'priority', 'due_date', 'status', 'user_id'];
 
     public function user()
     {
