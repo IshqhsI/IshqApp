@@ -4,7 +4,7 @@
         <!-- Tab Menu -->
         <div class="bg-slate-950 shadow-sm py-2">
             <div class="container mx-auto px-4">
-                <div class="flex">
+                <div class="flex justify-center">
                     <a class="px-6 py-4 text-indigo-600 border-b-2 border-indigo-600 font-medium"
                         href="{{ route('notes') }}">Notes</a>
                     <a class="px-6 py-4 text-gray-500 hover:text-indigo-600 transition duration-300"
@@ -16,7 +16,7 @@
         </div>
 
         <!-- Main Content -->
-        <main class="container mx-auto px-4 py-8 ">
+        <main class="container mx-auto px-4 py-8 w-full lg:w-3/4">
             <div class="flex justify-between items-center mb-8">
                 <button
                     class="btn btn-primary bg-indigo-600 hover:bg-indigo-700 border-none shadow-lg transition duration-300 transform hover:scale-105"
