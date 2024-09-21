@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('build/assets/app-CRBQ9-4s.css') }}">
     <script src="{{ asset('build/assets/app-DLXkxiZ3.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    @livewireStyles
     <style>
         @keyframes fade-in-down {
             from {
@@ -71,6 +72,8 @@
     @include('layouts.navbar')
     @yield('content')
     {{-- @include('layouts.footer') --}}
+
+    @livewireScripts
 </body>
 
 </html>
