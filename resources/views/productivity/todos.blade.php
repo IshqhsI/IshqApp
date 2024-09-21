@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-    <livewire:todos />
+    @livewire('todos')
 
     <script>
         function showUpdateTodo(button, id, title) {
