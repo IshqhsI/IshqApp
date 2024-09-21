@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
-    <link rel="stylesheet" href="{{ asset('build/assets/app-CRBQ9-4s.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/assets/app-CV_pN02n.css') }}">
     <script src="{{ asset('build/assets/app-DLXkxiZ3.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @livewireStyles
