@@ -34,10 +34,10 @@ Route::post('/productivity/notes', [NoteController::class, 'store'])->name('note
 Route::put('/productivity/notes', [NoteController::class, 'update'])->name('notes.update')->middleware('auth');
 Route::delete('/productivity/notes/{note}', [NoteController::class, 'destroy'])->name('notes.destroy')->middleware('auth');
 
-Route::get('/productivity/todos', [ToDoController::class, 'index'])->name('todos');
-Route::post('/productivity/todos', [ToDoController::class, 'store'])->name('todos.store');
-Route::put('/productivity/todos', [ToDoController::class, 'update'])->name('todos.update');
-Route::delete('/productivity/todos/{todo}', [ToDoController::class, 'destroy'])->name('todos.destroy');
+Route::get('/productivity/todos', [ToDoController::class, 'index'])->name('todos')->middleware('auth');
+Route::post('/productivity/todos', [ToDoController::class, 'store'])->name('todos.store')->middleware('auth');
+Route::put('/productivity/todos', [ToDoController::class, 'update'])->name('todos.update')->middleware('auth');
+Route::delete('/productivity/todos/{todo}', [ToDoController::class, 'destroy'])->name('todos.destroy')->middleware('auth');
 
 
 
