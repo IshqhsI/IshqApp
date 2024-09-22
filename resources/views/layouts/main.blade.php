@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +7,8 @@
     <title>Home</title>
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
     <link rel="stylesheet" href="{{ asset('build/assets/app-CV_pN02n.css') }}">
-    <script src="{{ asset('build/assets/app-DLXkxiZ3.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    @livewireStyles
+    {{-- @livewireStyles --}}
     <style>
         @keyframes fade-in-down {
             from {
@@ -73,7 +71,8 @@
     @yield('content')
     {{-- @include('layouts.footer') --}}
 
-    @livewireScripts
+    <script src="{{ asset('build/assets/app-DLXkxiZ3.js') }}"></script>
+    {{-- @livewireScripts --}}
 </body>
 
 </html>
