@@ -22,7 +22,7 @@ Route::get('/contact', function () {
 })->name('contact');
 
 Route::get('/productivity/schedules', function () {
-    return view('productivitaaaaay.schedules');
+    return view('productivity.schedules');
 })->name('schedules');
 
 Route::get('/productivity/notes', [NoteController::class, 'index'])->name('notes')->middleware('auth');
