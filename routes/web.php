@@ -6,7 +6,7 @@ use App\Http\Controllers\ToDoController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('home');
+    return view('home', ['title' => 'Portofolio - Muhammad Ridhwan']);
 })->name('home');
 
 Route::get('/skills', function () {
@@ -18,7 +18,7 @@ Route::get('/projects', function () {
 })->name('projects');
 
 Route::get('/contact', function () {
-    return view('contact');
+    return view('contact', ['title' => 'Portofolio - Contact']);
 })->name('contact');
 
 Route::get('/productivity', function () {
