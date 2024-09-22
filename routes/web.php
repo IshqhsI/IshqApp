@@ -10,7 +10,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/skills', function () {
-    return view('skills');
+    return view('skills', ['title' => 'Portofolio - Skills']);
 })->name('skills');
 
 Route::get('/projects', function () {
