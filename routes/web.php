@@ -14,7 +14,7 @@ Route::get('/skills', function () {
 })->name('skills');
 
 Route::get('/projects', function () {
-    return view('projects');
+    return view('projects', ['title' => 'Portofolio - Projects']);
 })->name('projects');
 
 Route::get('/contact', function () {
