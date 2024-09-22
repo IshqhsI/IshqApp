@@ -21,12 +21,8 @@ Route::get('/contact', function () {
     return view('contact', ['title' => 'Portofolio - Contact']);
 })->name('contact');
 
-Route::get('/productivity', function () {
-    return view('productivity');
-})->name('productivity');
-
 Route::get('/productivity/schedules', function () {
-    return view('productivity.schedules');
+    return view('productivitaaaaay.schedules');
 })->name('schedules');
 
 Route::get('/productivity/notes', [NoteController::class, 'index'])->name('notes')->middleware('auth');
