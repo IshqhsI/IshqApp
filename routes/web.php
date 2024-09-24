@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\NoteController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ToDoController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NoteController;
+use App\Http\Controllers\ToDoController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ScheduleController;
 
 Route::get('/', function () {
     return view('home', ['title' => 'Portofolio - Muhammad Ridhwan']);
@@ -24,6 +25,8 @@ Route::get('/contact', function () {
 Route::get('/productivity/schedules', function () {
     return view('productivity.schedules');
 })->name('schedules');
+
+Route::post('/productivity/schedules', [ScheduleController::class, 'store'])->name('schedules.store');
 
 Route::get('/productivity/notes', [NoteController::class, 'index'])->name('notes')->middleware('auth');
 Route::post('/productivity/notes', [NoteController::class, 'store'])->name('notes.store')->middleware('auth');
