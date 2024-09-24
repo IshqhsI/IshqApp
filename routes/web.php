@@ -22,11 +22,10 @@ Route::get('/contact', function () {
     return view('contact', ['title' => 'Portofolio - Contact']);
 })->name('contact');
 
-Route::get('/productivity/schedules', function () {
-    return view('productivity.schedules');
-})->name('schedules');
-
+Route::get('/productivity/schedules', [ScheduleController::class, 'index'])->name('schedules');
 Route::post('/productivity/schedules', [ScheduleController::class, 'store'])->name('schedules.store');
+Route::put('/productivity/schedules', [ScheduleController::class, 'update'])->name('schedules.update');
+Route::delete('/productivity/schedules/{schedule}', [ScheduleController::class, 'destroy'])->name('schedules.destroy');
 
 Route::get('/productivity/notes', [NoteController::class, 'index'])->name('notes')->middleware('auth');
 Route::post('/productivity/notes', [NoteController::class, 'store'])->name('notes.store')->middleware('auth');
