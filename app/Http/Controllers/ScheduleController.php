@@ -16,7 +16,6 @@ class ScheduleController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
         $request->validate([
             'title' => 'required',
             'type' => 'required',
@@ -34,6 +33,7 @@ class ScheduleController extends Controller
             'is_all_day' => ($request->is_all_day == 'on') ? true : false,
             'user_id' => Auth::user()->id
         ]);
-        return redirect('/productivity/schedules');
+
+        return redirect('/productivity/schedules')->with('success', 'Schedule created successfully.');
     }
 }
