@@ -20,8 +20,7 @@ class ScheduleController extends Controller
             'title' => 'required',
             'type' => 'required',
             'description' => 'required',
-            'start_time' => 'required',
-            'is_all_day' => 'required',
+            'start_time' => 'required'
         ]);
 
         Schedule::create([
