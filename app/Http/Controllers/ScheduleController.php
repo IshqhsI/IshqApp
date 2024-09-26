@@ -35,4 +35,9 @@ class ScheduleController extends Controller
 
         return redirect('/productivity/schedules')->with('success', 'Schedule created successfully.');
     }
+
+    public function destroy(Schedule $schedule){
+        $schedule->delete();
+        return back();
+    }
 }
