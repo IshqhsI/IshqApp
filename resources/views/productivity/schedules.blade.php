@@ -130,7 +130,7 @@
                                 </span>
                                 <div class="flex items-center space-x-2">
                                     <button class="text-gray-400 hover:text-blue-500"
-                                        onclick="showEditModal({{ json_encode($schedule) }})">
+                                        onclick="showEditModal({{ $schedule->id }})">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
                                             viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -322,9 +322,105 @@
         </div>
     </dialog>
 
+    <!-- Edit Schedule Modal -->
+    <dialog id="edit_schedule_modal" class="modal">
+        <div class="modal-box relative bg-gray-800 text-gray-200">
+            <button class="btn btn-sm btn-circle absolute right-2 top-2 text-gray-400 hover:text-white hover:bg-gray-700"
+                onclick="edit_schedule_modal.close()">✕</button>
+            <h3 class="text-lg font-semibold mb-4">Add New Schedule</h3>
+
+            <form id="schedule_form" action="{{ route('schedules.store') }}" method="POST">
+                @csrf
+                <!-- Title -->
+                <div class="form-control mb-4">
+                    <label class="label" for="title">
+                        <span class="label-text text-gray-300">Title</span>
+                    </label>
+                    <input type="text" id="title" name="title"
+                        class="input input-bordered w-full bg-gray-700 text-white border-gray-600 placeholder-gray-500 focus:ring-2 focus:ring-indigo-600"
+                        placeholder="Enter schedule title" required />
+                </div>
+
+                <!-- Type -->
+                <div class="form-control mb-4">
+                    <label class="label" for="type">
+                        <span class="label-text text-gray-300">Type</span>
+                    </label>
+                    <select id="type" name="type"
+                        class="select select-bordered w-full bg-gray-700 text-white border-gray-600 focus:ring-2 focus:ring-indigo-600"
+                        required>
+                        <option value="meeting">Meeting</option>
+                        <option value="event">Event</option>
+                        <option value="deadline">Deadline</option>
+                    </select>
+                </div>
+
+                <!-- Description -->
+                <div class="form-control mb-4">
+                    <label class="label" for="description">
+                        <span class="label-text text-gray-300">Description</span>
+                    </label>
+                    <textarea id="description" name="description" rows="3"
+                        class="textarea textarea-bordered w-full bg-gray-700 text-white border-gray-600 placeholder-gray-500 focus:ring-2 focus:ring-indigo-600"
+                        placeholder="Enter schedule description (optional)"></textarea>
+                </div>
+
+                <!-- Start Time (Updated for All-Day event) -->
+                <div class="form-control mb-4">
+                    <label class="label" for="start_time">
+                        <span class="label-text text-gray-300">Start Time</span>
+                    </label>
+                    <input type="datetime-local" id="start_time" name="start_time"
+                        class="input input-bordered w-full bg-gray-700 text-white border-gray-600 focus:ring-2 focus:ring-indigo-600"
+                        required />
+                </div>
+
+                <!-- End Time (optional, hidden if All-Day) -->
+                <div class="form-control mb-4" id="end_time_container" style="display: none;">
+                    <label class="label" for="end_time">
+                        <span class="label-text text-gray-300">End Time</span>
+                    </label>
+                    <input type="datetime-local" id="end_time" name="end_time"
+                        class="input input-bordered w-full bg-gray-700 text-white border-gray-600 focus:ring-2 focus:ring-indigo-600" />
+                </div>
+
+                <!-- All Day Checkbox -->
+                <div class="form-control mb-4">
+                    <label class="label cursor-pointer">
+                        <span class="label-text text-gray-300">All Day Event</span>
+                        <input type="checkbox" id="is_all_day" name="is_all_day" class="checkbox checkbox-primary"
+                            onchange="toggleEndTime()" />
+                    </label>
+                </div>
+
+                <!-- Status -->
+                <div class="form-control mb-4">
+                    <label class="label" for="status">
+                        <span class="label-text text-gray-300">Status</span>
+                    </label>
+                    <select id="status" name="status"
+                        class="select select-bordered w-full bg-gray-700 text-white border-gray-600 focus:ring-2 focus:ring-indigo-600">
+                        <option value="pending">Pending</option>
+                        <option value="confirmed">Confirmed</option>
+                    </select>
+                </div>
+
+                <!-- Buttons -->
+                <div class="modal-action">
+                    <button type="submit"
+                        class="btn bg-indigo-600 hover:bg-indigo-700 text-white font-semibold shadow-lg transition duration-300">
+                        Save Schedule
+                    </button>
+                    <button type="button" class="btn btn-ghost text-gray-400 hover:text-white"
+                        onclick="edit_schedule_modal.close()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
 
     {{-- <script>
-        function showupdate(button) {
+        function showeditmodal(button) {
             my_modal_2.showModal();
 
             const title = document.getElementById('title');
@@ -365,6 +461,10 @@
                 startTimeInput.type = 'datetime-local';
                 endTimeContainer.style.display = 'block';
             }
+        }
+
+        function showEditModal(){
+            edit_schedule_modal.showModal()
         }
     </script>
 @endsection
