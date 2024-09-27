@@ -130,14 +130,15 @@
                                 </span>
                                 <div class="flex items-center space-x-2">
                                     <button class="text-gray-400 hover:text-blue-500"
-                                        onclick="showEditModal({{ $schedule->id }})">
+                                        onclick="showEditModal({{ $schedule->id }}, '{{ $schedule->title }}', '{{ $schedule->description }}', '{{ $schedule->start_time }}', '{{ $schedule->end_time !== null ? $schedule->end_time : '' }}', '{{ $schedule->status }}')">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
                                             viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                         </svg>
                                     </button>
-                                    <form action="{{ route('schedules.destroy', $schedule->id) }}" method="post" class="inline mt-1">
+                                    <form action="{{ route('schedules.destroy', $schedule->id) }}" method="post"
+                                        class="inline mt-1">
                                         @csrf
                                         @method('DELETE')
                                         <button class="text-gray-400 hover:text-red-500" type="submit">
@@ -327,10 +328,11 @@
         <div class="modal-box relative bg-gray-800 text-gray-200">
             <button class="btn btn-sm btn-circle absolute right-2 top-2 text-gray-400 hover:text-white hover:bg-gray-700"
                 onclick="edit_schedule_modal.close()">✕</button>
-            <h3 class="text-lg font-semibold mb-4">Add New Schedule</h3>
+            <h3 class="text-lg font-semibold mb-4">Edit Schedule</h3>
 
-            <form id="schedule_form" action="{{ route('schedules.store') }}" method="POST">
+            <form id="schedule_form" action="{{ route('schedules.update') }}" method="POST">
                 @csrf
+                @method('PUT')
                 <!-- Title -->
                 <div class="form-control mb-4">
                     <label class="label" for="title">
@@ -444,6 +446,8 @@
         });
     </script> --}}
     <script>
+        // $(document).ready(function() {
+
         // Toggle visibility of end_time input based on all-day event status
         function toggleEndTime() {
             const isAllDay = document.getElementById('is_all_day').checked;
@@ -463,8 +467,21 @@
             }
         }
 
-        function showEditModal(){
-            edit_schedule_modal.showModal()
+        function showEditModal(id, title, description, start_time, end_time = '', status) {
+            edit_schedule_modal.showModal();
+
+            // Select the modal element
+            const modal = document.getElementById('edit_schedule_modal');
+
+            // Set values of the fields using Vanilla JavaScript
+            modal.querySelector('#title').value = title;
+            modal.querySelector('#description').value = description;
+            modal.querySelector('#start_time').value = start_time;
+            modal.querySelector('#end_time').value = end_time;
+            modal.querySelector('#status').value = status;
+
+
         }
+        // });
     </script>
 @endsection
