@@ -59,6 +59,6 @@
         </ul>
     </div>
     <div class="navbar-end">
-        <a class="btn btn-primary shadow-lg hover:shadow-2xl transition-all duration-300">Get Started</a>
+        <a class="btn btn-primary shadow-lg hover:shadow-2xl transition-all duration-300" href="{{ route('login') }}">Get Started</a>
     </div>
 </div>
