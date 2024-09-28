@@ -26,7 +26,7 @@ class NoteController extends Controller
         $note->user_id = Auth::user()->id;
         $note->save();
 
-        return redirect()->route('notes');
+        return redirect()->route('notes')->with('success', 'Note created successfully.');
     }
 
     public function update(Request $request){
