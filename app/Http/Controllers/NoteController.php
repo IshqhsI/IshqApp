@@ -44,7 +44,7 @@ class NoteController extends Controller
         $note->content = $request->input('content');
         $note->save();
 
-        return redirect()->route('notes');
+        return redirect()->route('notes')->with('success', 'Note updated successfully.');
     }
 
     public function destroy(Note $note)
