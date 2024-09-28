@@ -130,7 +130,7 @@
                                 </span>
                                 <div class="flex items-center space-x-2">
                                     <button class="text-gray-400 hover:text-blue-500"
-                                        onclick="showEditModal({{ $schedule->id }}, '{{ $schedule->title }}', '{{ $schedule->description }}', '{{ $schedule->start_time }}', '{{ $schedule->end_time !== null ? $schedule->end_time : '' }}', '{{ $schedule->status }}')">
+                                        onclick="showEditModal({{ $schedule->id }}, '{{ $schedule->title }}', '{{ $schedule->description }}', '{{ $schedule->start_time }}', '{{ $schedule->end_time !== null ? $schedule->end_time : '' }}',{{ $schedule->is_all_day }}, '{{ $schedule->status }}')">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
                                             viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -467,7 +467,7 @@
             }
         }
 
-        function showEditModal(id, title, description, start_time, end_time = '', status) {
+        function showEditModal(id, title, description, start_time, end_time = '', isAllday, status) {
             edit_schedule_modal.showModal();
 
             // Select the modal element
@@ -480,7 +480,13 @@
             modal.querySelector('#end_time').value = end_time;
             modal.querySelector('#status').value = status;
 
+            if(end_time){
+                modal.querySelector('#end_time_container').style.display = 'block';
+            }
 
+            if(isAllday){
+                modal.querySelector('#is_all_day').checked = true;
+            }
         }
         // });
     </script>
