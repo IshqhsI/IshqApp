@@ -160,73 +160,6 @@
 
     </div>
 
-    <!-- Open the modal using ID.showModal() method -->
-    {{-- <dialog id="my_modal_1" class="modal">
-        <div class="modal-box">
-            <h3 class="font-bold text-lg">Add New Note</h3>
-            <p class="py-4">Please fill in the form below to add a new note.</p>
-            <form action="{{ route('notes.store') }}" method="post">
-                @csrf
-
-                <div class="form-control">
-                    <label class="label">
-                        <span class="label-text">Title</span>
-                    </label>
-                    <input type="text" placeholder="Title" name="title"
-                        class="input input-bordered w-full focus:ring-2 focus:ring-indigo-600 transition duration-300" />
-                </div>
-                <div class="form-control">
-                    <label class="label">
-                        <span class="label-text">Content</span>
-                    </label>
-                    <textarea placeholder="Content" name="content"
-                        class="textarea textarea-bordered w-full focus:ring-2 focus:ring-indigo-600 transition duration-300"></textarea>
-                </div>
-
-                <div class="modal-action">
-                    <button type="submit"
-                        class="btn btn-primary bg-indigo-600 hover:bg-indigo-700 border-none shadow-lg transition duration-300 transform hover:scale-105 px-4">Save</button>
-                    <button class="btn btn-ghost" type="button" onclick="my_modal_1.close()">Cancel</button>
-                </div>
-            </form>
-        </div>
-    </dialog> --}}
-
-    <!-- Open the modal using ID.showModal() method -->
-    {{-- <dialog id="my_modal_2" class="modal">
-        <div class="modal-box">
-            <h3 class="font-bold text-lg">Update Note</h3>
-            <p class="py-4">Please fill in the form below to update a note.</p>
-            <form action="{{ route('notes.update') }}" method="post">
-                @csrf
-                @method('PUT')
-                <div class="form-control">
-                    <label class="label">
-                        <span class="label-text">Title</span>
-                    </label>
-                    <input type="text" placeholder="Title" name="title" id="title"
-                        class="input input-bordered w-full focus:ring-2 focus:ring-indigo-600 transition duration-300" />
-                </div>
-                <div class="form-control">
-                    <label class="label">
-                        <span class="label-text">Content</span>
-                    </label>
-                    <textarea placeholder="Content" name="content" id="content"
-                        class="textarea textarea-bordered w-full focus:ring-2 focus:ring-indigo-600 transition duration-300"></textarea>
-                </div>
-
-                <input type="hidden" name="id" id="id">
-
-                <div class="modal-action">
-                    <button type="submit"
-                        class="btn btn-primary bg-indigo-600 hover:bg-indigo-700 border-none shadow-lg transition duration-300 transform hover:scale-105 px-4">Save</button>
-                    <button class="btn btn-ghost" type="button" onclick="my_modal_2.close()">Cancel</button>
-                </div>
-
-            </form>
-        </div>
-    </dialog> --}}
-
     <!-- Add Schedule Modal -->
     <dialog id="add_schedule_modal" class="modal">
         <div class="modal-box relative bg-gray-800 text-gray-200">
@@ -420,31 +353,6 @@
         </div>
     </dialog>
 
-
-    {{-- <script>
-        function showeditmodal(button) {
-            my_modal_2.showModal();
-
-            const title = document.getElementById('title');
-            const content = document.getElementById('content');
-            const id = document.getElementById('id');
-
-            title.value = button.getAttribute('data-title');
-            content.value = button.getAttribute('data-content');
-            id.value = button.getAttribute('data-id');
-
-        }
-
-        // Search with jquery
-        $(document).ready(function() {
-            $("#search").on("keyup", function() {
-                var value = $(this).val().toLowerCase();
-                $("#notes .note").filter(function() {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-            });
-        });
-    </script> --}}
     <script>
         // $(document).ready(function() {
 
