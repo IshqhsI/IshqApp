@@ -30,13 +30,15 @@ class ScheduleController extends Controller
             'start_time' => $request->start_time,
             'end_time' => ($request->end_time) ? $request->end_time : null,
             'is_all_day' => ($request->is_all_day == 'on') ? true : false,
+            'status' => $request->status,
             'user_id' => Auth::user()->id
         ]);
 
         return redirect('/productivity/schedules')->with('success', 'Schedule created successfully.');
     }
 
-    public function update(Request $request){
+    public function update(Request $request)
+    {
         $request->validate([
             'title' => 'required',
             'type' => 'required',
@@ -51,13 +53,15 @@ class ScheduleController extends Controller
             'start_time' => $request->start_time,
             'end_time' => ($request->end_time) ? $request->end_time : null,
             'is_all_day' => ($request->is_all_day == 'on') ? true : false,
+            'status' => $request->status,
             'user_id' => Auth::user()->id
         ]);
 
         return redirect('/productivity/schedules')->with('success', 'Schedule edited successfully.');
     }
 
-    public function destroy(Schedule $schedule){
+    public function destroy(Schedule $schedule)
+    {
         $schedule->delete();
         return back();
     }
